@@ -12,7 +12,7 @@ window.onload=function geoFindMe() {
     function success(position) {
       let lat  = position.coords.latitude;
       let lon = position.coords.longitude;
-      let userUrl= 'http://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&appid='+key;
+      let userUrl= 'https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&appid='+key;
       getWeather(userUrl).then(data => {
         weatherData=data;
         console.log(weatherData);
