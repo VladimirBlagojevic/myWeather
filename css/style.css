@@ -1,0 +1,168 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #fff; }
+
+.background {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  padding: 4% 15%;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(212, 195, 172, 0.5)), url(../img/back.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.container {
+  flex: 0 0 100%;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+  background-image: url(../img/front.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6rem 12rem rgba(0, 0, 0, 0.4); }
+
+.header {
+  flex: 0 0 70%;
+  background-color: transparent;
+  position: relative; }
+  .header__time-box {
+    position: absolute;
+    top: 17%;
+    left: 8%; }
+  .header__date {
+    font-weight: 300;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-left: 1rem;
+    margin-top: -2rem; }
+  .header__time {
+    font-weight: 300;
+    font-size: 5rem;
+    letter-spacing: 3px; }
+  .header__city-box {
+    position: absolute;
+    top: 40%;
+    right: 12%; }
+  .header__city {
+    font-weight: 300;
+    font-size: 1.8rem;
+    letter-spacing: 1px; }
+  .header__city--state {
+    font-weight: 300;
+    font-size: 1.6rem;
+    letter-spacing: 1px; }
+  .header__conditions {
+    font-weight: 300;
+    font-size: 1.4rem;
+    text-align: right; }
+  .header__icon-box {
+    position: absolute;
+    top: 56%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 12rem;
+    height: 14rem; }
+  .header__icon {
+    width: 2.2rem;
+    height: 2.2rem; }
+  .header__icon-txt {
+    display: inline-block;
+    margin-left: 1rem;
+    margin-top: -0.5rem;
+    font-size: 1.4rem;
+    font-weight: 300; }
+
+.weather {
+  flex: 0 0 30%;
+  background-color: rgba(60, 60, 68, 0.85);
+  font-size: 2rem;
+  font-weight: 300;
+  display: flex; }
+  .weather__today {
+    flex: 0 0 35%;
+    display: flex;
+    align-items: center; }
+  .weather__icon-box {
+    flex: 0 1 50%;
+    display: flex;
+    width: 14rem;
+    height: 14rem;
+    margin-left: 3%;
+    margin-top: -2rem; }
+  .weather__icon-now {
+    flex: 0 1 100%; }
+  .weather__temp-box {
+    flex: 0 1 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-left: -1.5rem; }
+  .weather__now {
+    flex: 0 1 50%;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    background-color: #272e3f;
+    border-radius: 100px;
+    padding: 1px 10px;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); }
+  .weather__value {
+    flex: 0 1 50%;
+    font-size: 5rem;
+    margin-left: 1rem; }
+  .weather__week {
+    flex: 0 0 65%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row; }
+  .weather__weekday {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .weather__weekday-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    background-color: #272e3f;
+    border-radius: 100px;
+    padding: 1px 5px;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); }

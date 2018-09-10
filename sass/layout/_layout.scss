@@ -1,0 +1,190 @@
+
+.background{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    padding: 4% 15%;
+    background-image:linear-gradient(to top, rgba($color-black,0.75) ,rgba($color-secondary-dark,0.5)) ,url(../img/back.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    flex: 0 0 100%;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+    background-image:url(../img/front.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $shadow;
+
+}
+
+.header{
+    flex:0 0 70%;
+    background-color: transparent;
+    position: relative;
+
+    &__time-box{
+        position: absolute;
+        top:17%;
+        left:8%;
+    }
+
+    &__date{
+        font-weight: 300;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        margin-left: 1rem;
+        margin-top: -2rem;
+    }
+
+    &__time{
+        font-weight: 300;
+        font-size: 5rem;
+        letter-spacing: 3px;
+    }
+
+    &__city-box{
+        position: absolute;
+        top: 40%;
+        right: 12%;
+    }
+
+    &__city{
+        font-weight: 300;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    &__city--state{
+        font-weight: 300;
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    &__conditions{
+        font-weight: 300;
+        font-size: 1.4rem;
+        text-align: right;
+    }
+    &__icon-box{
+        position: absolute;
+        top:56%;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width:12rem;
+        height: 14rem;
+        //box-shadow: $shadow-light;
+    }
+    &__icon{
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+    
+    &__icon-txt{
+        display: inline-block;
+        margin-left: 1rem;
+        margin-top: -2rem;
+        font-size: 1.4rem;
+        font-weight: 300;
+
+    }
+
+
+}
+
+.weather{
+    flex: 0 0 30%;
+    background-color: rgba($color-primary,0.85);
+    font-size: 2rem;
+    font-weight: 300;
+    display: flex;
+    
+    &__today{
+        flex: 0 0 35%;
+        display: flex;
+        align-items: center;
+        
+
+    }
+    &__icon-box{
+        flex: 0 1 50%;
+        display: flex;
+        width: 14rem;
+        height: 14rem;
+        margin-left: 3%;
+        margin-top: -2rem;
+    }
+    &__icon-now{
+        flex:0 1 100%
+        
+        
+    }
+
+    &__temp-box{
+        flex: 0 1 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-left: -1.5rem;
+        
+        
+    }
+
+    &__now{
+        flex: 0 1 50%;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        background-color:$color-primary-dark;
+        border-radius: 100px;
+        padding: 1px 10px;
+        box-shadow: $shadow-light;
+        
+        
+    }
+    &__value{
+        flex:0 1 50%;
+        font-size: 5rem;
+        margin-left: 1rem;
+        
+    }
+
+    &__week{
+        flex: 0 0 65%;
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    &__weekday{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__weekday-title{
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+        background-color:$color-primary-dark;
+        border-radius: 100px;
+        padding: 1px 5px;
+        box-shadow: $shadow-light;
+
+    }
+
+
+}
+

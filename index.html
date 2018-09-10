@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Weather Widget</title>
+</head>
+<body>  
+    <div class="background">
+        <main class="container">
+
+            <header class="header">
+                <div class="header__time-box">
+                    <h1 class="header__time">18:30</h1>
+                    <h2 class="header__date">Monday,12 February 2018</h2>
+                </div>
+                <div class="header__city-box">
+                    <div class="header__city">Banjaluka<span class="header__city--state">,BA</span></div>
+                    <div class="header__conditions">Clear Sky</div>
+                </div>
+                <div class="header__icon-box">
+                    <div><img src="img/wind.svg" class="header__icon" alt="Wind value"><span class="header__icon-txt">0.8 m/s</span></div>
+                    <div><img src="img/press.svg" class="header__icon" alt="Wind value"><span class="header__icon-txt">1008.2 mbar</span ></div>
+                    <div><img src="img/humidity.svg" class="header__icon" alt="Wind value"><span class="header__icon-txt">81%</span></div>
+                </div>
+            </header>
+
+            <div class="weather ">
+                <div class="weather__today">
+                    <div class="weather__icon-box">
+                        <img src="img/day.svg" class="weather__icon-now" alt="Snowing">
+                    </div>
+                    <div class="weather__temp-box">
+                        <p class="weather__now weekday--js">Today</p>
+                        <p class="weather__value"><span class="temp--js">12</span>&deg;</p>
+                    </div>
+                </div>
+                <div class="weather__week">
+                    <div class="weather__weekday">
+                        <p class="weather__weekday-title weekday--js">Mon</p>
+                        <img src="img/day.svg" class="weather__icon-weekday" alt="Weather for this day">
+                        <p class="weather__temp-week"><span class="temp--js">12</span>&deg;</p>
+                    </div>
+
+                    <div class="weather__weekday">
+                        <p class="weather__weekday-title weekday--js">tue</p>
+                        <img src="img/day.svg" class="weather__icon-weekday" alt="Weather for this day">
+                        <p class="weather__temp-week"><span class="temp--js">34</span>&deg;</p>
+                    </div>
+
+                    <div class="weather__weekday">
+                        <p class="weather__weekday-title weekday--js">wed</p>
+                        <img src="img/day.svg" class="weather__icon-weekday" alt="Weather for this day">
+                        <p class="weather__temp-week"><span class="temp--js">15</span>&deg;</p>
+                    </div>
+
+                    <div class="weather__weekday">
+                        <p class="weather__weekday-title weekday--js">thu</p>
+                        <img src="img/day.svg" class="weather__icon-weekday" alt="Weather for this day">
+                        <p class="weather__temp-week"><span class="temp--js">8</span>&deg;</p>
+                    </div>
+                    
+                    <div class="weather__weekday">
+                        <p class="weather__weekday-title weekday--js">fri</p>
+                        <img src="img/day.svg" class="weather__icon-weekday" alt="Weather for this day">
+                        <p class="weather__temp-week"><span class="temp--js">27</span>&deg;</p>
+                    </div>
+                </div>    
+                   
+                    
+            </div>
+
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
