@@ -20,7 +20,7 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    box-shadow: $shadow;
+    box-shadow: $shadow; 
 
 }
 
@@ -38,8 +38,9 @@
         position: absolute;
         top:17%;
         left:8%;
+
         @include respond(phone){
-            top:7%
+            top:7%;
             
         }
     }
@@ -128,6 +129,7 @@
         flex: 0 1 35%;
         display: flex;
         align-items: center;
+
         @include respond(phone){ 
             margin-top: 4rem;
         }
@@ -143,7 +145,7 @@
         margin-top: -2rem;
     }
     &__icon-now{
-        flex:0 1 100%
+        flex:0 1 100%;
         
         
     }
