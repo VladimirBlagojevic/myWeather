@@ -20,14 +20,21 @@ window.onload=function geoFindMe() {
         updateWeatherIcons(weekArray);
         updateWeatherTemperature(weekArray);
         updateWeatherWeekday(weekArray);
+        updateCity(weatherData);
+        weatherDescription(weekArray);
+        
     });
     }
-  
     function error() {
       alert("Unable to retrieve your location");
     }
     navigator.geolocation.getCurrentPosition(success, error);
   }
+
+  // Update time and date in the UI
+  currentTimeAndDate();
+  setInterval(()=> currentTimeAndDate(),60000);
+  
 
   // Async function to fetch data from  api
 async function getWeather(url){
@@ -96,13 +103,13 @@ function updateWeatherIcons(obj){
                 cur.src='img/night.svg';
                 break;
             case "02d":
+            case "03d":
                 cur.src='img/cloudy-day-2.svg';
                 break;
             case "02n":
+            case "03n":
                 cur.src='img/cloudy-night-2.svg';
                 break;
-            case "03d":
-            case "03n":
             case "04d":
             case "04n":
             case "050d":
@@ -153,6 +160,48 @@ function updateWeatherWeekday(obj){
     });
     weekDay1.textContent='TODAY';
 }
+
+function updateCity(obj){
+    const state=document.querySelector('.header__city--state');
+    const city=document.querySelector('.header__city');
+    city.innerHTML=`${obj.city.name}<span class="header__city--state">,${obj.city.country}</span>`;
+}
+
+function weatherDescription(obj){
+    const description=document.querySelector('.header__conditions');
+    const wind=document.querySelector('.header__icon-1');
+    const press=document.querySelector('.header__icon-2');
+    const humidity=document.querySelector('.header__icon-3');
+
+    description.textContent=obj[0].weather[0].description;
+    wind.textContent=obj[0].wind.speed;
+    press.textContent=`${obj[0].main.pressure} mbar`;
+    humidity.textContent=`${obj[0].main.humidity} %`;
+}
+
+function currentTimeAndDate(){
+    const timeUI=document.querySelector('.header__time');
+    const dateUI=document.querySelector('.header__date');
+    // Update time
+    let time=new Date().toString().slice(16,21);
+    timeUI.textContent=time;
+
+    // Update date
+
+    // get full weekday
+    const week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    let weekDay=new Date().getDay();
+    // get full month
+    const months=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let month= new Date().getMonth();
+    // get year and day of the month
+    let year= new Date().getFullYear();
+    let day= new Date().getDate();
+    // build date
+    dateUI.textContent=`${week[weekDay]}, ${day} ${months[month]} ${year}`;
+}
+
+
 
 
 
