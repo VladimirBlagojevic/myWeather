@@ -24,8 +24,8 @@ html {
   font-size: 62.5%; }
   @media only screen and (min-width: 112.5em) {
     html {
-      font-size: 82.5%; } }
-  @media only screen and (max-width: 41em) {
+      font-size: 92.5%; } }
+  @media only screen and (max-width: 37em) {
     html {
       font-size: 52.5%; } }
 
@@ -64,14 +64,14 @@ body {
   flex: 0 0 70%;
   background-color: transparent;
   position: relative; }
-  @media only screen and (max-width: 41em) {
+  @media only screen and (max-width: 37em) {
     .header {
       flex: 0 0 50%; } }
   .header__time-box {
     position: absolute;
     top: 17%;
     left: 8%; }
-    @media only screen and (max-width: 41em) {
+    @media only screen and (max-width: 37em) {
       .header__time-box {
         top: 7%; } }
   .header__date {
@@ -127,7 +127,7 @@ body {
   font-size: 2rem;
   font-weight: 300;
   display: flex; }
-  @media only screen and (max-width: 41em) {
+  @media only screen and (max-width: 37em) {
     .weather {
       flex: 0 0 50%;
       flex-direction: column;
@@ -136,7 +136,7 @@ body {
     flex: 0 1 35%;
     display: flex;
     align-items: center; }
-    @media only screen and (max-width: 41em) {
+    @media only screen and (max-width: 37em) {
       .weather__today {
         margin-top: 4rem; } }
   .weather__icon-box {
