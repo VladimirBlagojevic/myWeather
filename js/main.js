@@ -1,21 +1,26 @@
 
-
+// Geolocation api function to get lon and lat of the current position
 window.onload=function geoFindMe() {
     let weatherData;
+    //api key
     const key='01fcae271944d22144c979ac5af8eb3a';
-  
+
     if (!navigator.geolocation){
       alert("<p>Geolocation is not supported by your browser</p>");
       return;
     }
-  
+    
     function success(position) {
+      // get current position coordinates
       let lat  = position.coords.latitude;
       let lon = position.coords.longitude;
+      // build up url to fetch data with it
       let userUrl= 'https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&appid='+key;
+      
+      // call async function
       getWeather(userUrl).then(data => {
         weatherData=data;
-        console.log(weatherData);
+        //in here we call all our function where we use data from api
         const weekArray=daysArray(weatherData);
         updateWeatherIcons(weekArray);
         updateWeatherTemperature(weekArray);
@@ -39,7 +44,9 @@ window.onload=function geoFindMe() {
   // Async function to fetch data from  api
 async function getWeather(url){
     try{
+        // fetch data with the given url
         const value= await fetch(url);
+        // turn json into object
         const data= await value.json();
         return data; 
     }
@@ -47,13 +54,14 @@ async function getWeather(url){
         alert(error);                             
     }                                
 }
-
+// Finds weather objects for the next five days and return it as new array
 function daysArray(obj){
     let tomorrow;
     let now;
     let days=[];
+    // ekstract time of first object
     now=obj.list[0].dt_txt.split(' ');
-        
+    //based on now value calculate tomorrow (so that tomorrow points to 12:00 of the next day)   
     switch (now[1]){
         case '00:00:00' :
             tomorrow=4;
@@ -82,18 +90,21 @@ function daysArray(obj){
         default:
             console.log('error');
     }
-
+    //build days array using tomorrow variable (we have first object twice becouse of ui setup)
     days=[obj.list[0],obj.list[0],obj.list[tomorrow],obj.list[tomorrow+8],obj.list[tomorrow+16],obj.list[tomorrow+24]];
 
     return days
 }
 
 function updateWeatherIcons(obj){
+    
     const todayIcon=document.querySelector('.weather__icon-now');
     const weekIcons=document.querySelectorAll('.weather__icon-weekday');
+    // merge selectors in one node-list by spreading weekIcons 
     const allIcons=[todayIcon, ...weekIcons];
-
+    // turn list into array and loop it 
     Array.from(allIcons).forEach((cur,index) => {
+        //  update img src with our custom svg based on case we get from passed object
         switch(obj[index].weather[0].icon) {
 
             case "01d":
@@ -154,19 +165,23 @@ function updateWeatherWeekday(obj){
     const allDays=[...weekDay];
 
     Array.from(allDays).forEach((cur,index)=>{
+        //get  date string for the current object
         let dateString=obj[index].dt_txt.split(' ');
+        //use that string to get number of week day
         let day=new Date(dateString[0]).getDay();
+        //pass that number to week array to get name of the current day in format defined trough week array
         cur.textContent=`${week[day]}`;
     });
+
     weekDay1.textContent='TODAY';
 }
-
+// Update UI with city and state for current location
 function updateCity(obj){
     const state=document.querySelector('.header__city--state');
     const city=document.querySelector('.header__city');
     city.innerHTML=`${obj.city.name}<span class="header__city--state">,${obj.city.country}</span>`;
 }
-
+// Weather description for today
 function weatherDescription(obj){
     const description=document.querySelector('.header__conditions');
     const wind=document.querySelector('.header__icon-1');
